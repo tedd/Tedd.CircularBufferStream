@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31423.177
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tedd.CircularBufferStream", "Tedd.CircularBufferStream\Tedd.CircularBufferStream.csproj", "{ABB8F923-57B3-4798-8107-1B9E4A668817}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tedd.CircularBufferStream.Test", "Tedd.CircularBufferStream.Test\Tedd.CircularBufferStream.Test.csproj", "{04BF4183-8DA9-4DBC-B0E4-C4E31C2A954E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABB8F923-57B3-4798-8107-1B9E4A668817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB8F923-57B3-4798-8107-1B9E4A668817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB8F923-57B3-4798-8107-1B9E4A668817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB8F923-57B3-4798-8107-1B9E4A668817}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04BF4183-8DA9-4DBC-B0E4-C4E31C2A954E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04BF4183-8DA9-4DBC-B0E4-C4E31C2A954E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04BF4183-8DA9-4DBC-B0E4-C4E31C2A954E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04BF4183-8DA9-4DBC-B0E4-C4E31C2A954E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {228B36A1-C960-4A83-9F1C-593C1D97755C}
+	EndGlobalSection
+EndGlobal

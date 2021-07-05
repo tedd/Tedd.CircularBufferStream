@@ -13,7 +13,22 @@ namespace Tedd
 
         public CircularBufferStream()
         {
-            _pipe = new Pipe(new PipeOptions(null, PipeScheduler.ThreadPool, PipeScheduler.ThreadPool, 0, 0, 1024, false));
+            _pipe = new Pipe(new PipeOptions(null, null, null, 0, 0, 1024, false));
+            //_pipe = new Pipe(new PipeOptions(null, PipeScheduler.ThreadPool, PipeScheduler.ThreadPool, 0, 0, 1024, false));
+            _readStream = _pipe.Reader.AsStream();
+            _writeStream = _pipe.Writer.AsStream();
+        }
+
+        public CircularBufferStream(Pipe pipe)
+        {
+            _pipe = pipe;
+            _readStream = _pipe.Reader.AsStream();
+            _writeStream = _pipe.Writer.AsStream();
+        }
+
+        public CircularBufferStream(PipeOptions pipeOptions)
+        {
+            _pipe = new Pipe(pipeOptions);
             _readStream = _pipe.Reader.AsStream();
             _writeStream = _pipe.Writer.AsStream();
         }
@@ -36,6 +51,7 @@ namespace Tedd
             => _readStream.ReadAsync(buffer);
 
 #endif
+
         public override int Read(byte[] buffer, int offset, int count)
             => _readStream.Read(buffer, offset, count);
 

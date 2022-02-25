@@ -2,9 +2,9 @@ name: Build, test and publish NuGet
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build-test-publish:

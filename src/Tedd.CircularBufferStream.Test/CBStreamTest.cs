@@ -4,9 +4,9 @@ using Tedd;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace Tedd.CircularBufferStreamTest
-{
-    public class UnitTest1
+namespace Tedd.CircularBufferStreamTest;
+
+    public class CBStreamTest
     {
         [Fact]
         public async Task TestThousand()
@@ -49,4 +49,3 @@ namespace Tedd.CircularBufferStreamTest
             }
         }
     }
-}

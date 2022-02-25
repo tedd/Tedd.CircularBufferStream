@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net5.0;net6.0</TargetFrameworks>
+		<!--<TargetFramework>net6.0</TargetFramework>-->
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Version>1.0.1</Version>
+		<Description>Provides a circular buffer Stream implementation built on Pipelines for high performance. The behavior is similar to MemoryStream, except memory is released (and reused) once its read from the Stream.</Description>
+		<PackageProjectUrl>https://github.com/tedd/Tedd.CircularBufferStream</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/tedd/Tedd.CircularBufferStream.git</RepositoryUrl>
+		<PackageTags>Stream;System.IO.Stream;Circular;Circular Buffer</PackageTags>
+		<Authors>tedd</Authors>
+		<Company>Tedd Hansen</Company>
+		<RepositoryType>git</RepositoryType>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Copyright>Tedd Hansen</Copyright>
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+		<EnableNETAnalyzers>True</EnableNETAnalyzers>
+		<AnalysisLevel>latest-all</AnalysisLevel>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+
+
+
+	<ItemGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^netstandard'))">
+		<PackageReference Include="System.IO.Pipelines" Version="5.0.1" />
+	</ItemGroup>
+	<ItemGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^net5'))">
+		<PackageReference Include="System.IO.Pipelines" Version="5.0.1" />
+	</ItemGroup>
+	<ItemGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^net6'))">
+		<PackageReference Include="System.IO.Pipelines" Version="6.0.2" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^netstandard'))">
+		<DefineConstants>$(DefineConstants);NETSTANDARD</DefineConstants>
+	</PropertyGroup>
+
+</Project>

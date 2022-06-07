@@ -1,6 +1,8 @@
 # Tedd.CircularBufferStream
 High performance circular buffer Stream using System.IO.Pipelines.
 
+Available as NuGet package: https://www.nuget.org/packages/Tedd.CircularBufferStream/
+
 This functions similarly as a MemoryStream, except as a circular memory buffer.
 
 Memory will dynamically increase as data is written to the stream.

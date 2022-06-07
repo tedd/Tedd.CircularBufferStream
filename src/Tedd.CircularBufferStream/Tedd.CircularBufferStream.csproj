@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;net5.0;net6.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
 		<!--<TargetFramework>net6.0</TargetFramework>-->
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<Description>Provides a circular buffer Stream implementation built on Pipelines for high performance. The behavior is similar to MemoryStream, except memory is released (and reused) once its read from the Stream.</Description>
 		<PackageProjectUrl>https://github.com/tedd/Tedd.CircularBufferStream</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/tedd/Tedd.CircularBufferStream.git</RepositoryUrl>
@@ -37,14 +37,8 @@
 
 
 
-	<ItemGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^netstandard'))">
-		<PackageReference Include="System.IO.Pipelines" Version="5.0.1" />
-	</ItemGroup>
-	<ItemGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^net5'))">
-		<PackageReference Include="System.IO.Pipelines" Version="5.0.1" />
-	</ItemGroup>
-	<ItemGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^net6'))">
-		<PackageReference Include="System.IO.Pipelines" Version="6.0.2" />
+	<ItemGroup>
+		<PackageReference Include="System.IO.Pipelines" Version="6.0.3" />
 	</ItemGroup>
 
 	<PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^netstandard'))">

@@ -3,6 +3,7 @@ using Xunit;
 using Tedd;
 using System.Threading.Tasks;
 using System.IO;
+using System.Threading;
 
 namespace Tedd.CircularBufferStreamTest;
 
@@ -48,4 +49,37 @@ namespace Tedd.CircularBufferStreamTest;
 
             }
         }
-    }
+        
+        [Fact]
+        public async Task TestBlockingRead()
+        {
+                var inBuffer = new byte[1000];
+                var outBuffer = new byte[100];
+
+                var stream = new CircularBufferStream();
+                var sw = stream.ReadAsync(outBuffer, 0, outBuffer.Length);
+                Thread.Sleep(1000);
+                Assert.False(sw.IsCompleted);
+                await stream.WriteAsync(inBuffer, 0, inBuffer.Length);
+                Thread.Sleep(1000);
+                Assert.True(sw.IsCompleted);
+            
+        }
+
+        [Fact]
+        public async Task TestBlockingRead_CancelPendingRead()
+        {
+            var inBuffer = new byte[1000];
+            var outBuffer = new byte[100];
+
+            var stream = new CircularBufferStream();
+            var sw = stream.ReadAsync(outBuffer, 0, outBuffer.Length);
+            Thread.Sleep(1000);
+            Assert.False(sw.IsCompleted);
+            stream.CancelPendingRead();
+            Thread.Sleep(1000);
+            Assert.True(sw.IsCompleted);
+
+        }  
+        
+}
